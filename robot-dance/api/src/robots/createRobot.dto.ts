@@ -1,13 +1,14 @@
-import {IsNotEmpty, IsNumber, IsString, IsUrl} from 'class-validator';
+import {IsEnum, IsNotEmpty, IsNumber, IsString, IsUrl} from 'class-validator';
+import {PowerMove} from "./robot.entity";
 
 export class CreateRobotDto {
     @IsString()
     @IsNotEmpty()
     name: string
 
-    @IsString()
+    @IsEnum(PowerMove)
     @IsNotEmpty()
-    powerMove: string
+    powerMove: PowerMove
 
     @IsNumber({allowInfinity: false, allowNaN: false, maxDecimalPlaces: 0})
     @IsNotEmpty()

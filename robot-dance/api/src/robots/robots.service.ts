@@ -1,5 +1,5 @@
-import { Injectable } from '@nestjs/common';
-import {DeleteResult, InsertResult, Repository, UpdateResult} from "typeorm";
+import {Injectable} from '@nestjs/common';
+import {DeleteResult, Repository} from "typeorm";
 import {InjectRepository} from "@nestjs/typeorm";
 import {Robot} from "./robot.entity";
 import {CreateRobotDto} from "./createRobot.dto";
@@ -8,7 +8,8 @@ import {CreateRobotDto} from "./createRobot.dto";
 export class RobotsService {
     constructor(
         @InjectRepository(Robot)
-        private readonly usersRepository: Repository<Robot>) {}
+        private readonly usersRepository: Repository<Robot>) {
+    }
 
     findAll(): Promise<Robot[]> {
         return this.usersRepository.find();
@@ -28,6 +29,6 @@ export class RobotsService {
     }
 
     async delete(id: string): Promise<DeleteResult> {
-        return this.usersRepository.delete({ id: +id });
+        return this.usersRepository.delete({id: +id});
     }
 }

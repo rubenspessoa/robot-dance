@@ -1,13 +1,28 @@
-import { Module } from '@nestjs/common';
+import {Module} from '@nestjs/common';
 import {RobotsModule} from "./robots/robots.module";
 import {TypeOrmModule} from "@nestjs/typeorm";
 import {Connection} from "typeorm";
+import {DanceBattlesModule} from './dance-battles/dance-battles.module';
+import {DanceOffsModule} from './dance-offs/dance-offs.module';
+import {Robot} from "./robots/robot.entity";
 
 @Module({
-  imports: [TypeOrmModule.forRoot(), RobotsModule],
-  controllers: [],
-  providers: [],
+    imports: [
+        TypeOrmModule.forRoot({
+            "type": "sqlite",
+            "database": "database.db",
+            "logging": false,
+            "synchronize": true,
+            "entities": [Robot]
+        }),
+        RobotsModule,
+        DanceBattlesModule,
+        DanceOffsModule
+    ],
+    controllers: [],
+    providers: [],
 })
 export class AppModule {
-  constructor(private connection: Connection) {}
+    constructor(private connection: Connection) {
+    }
 }

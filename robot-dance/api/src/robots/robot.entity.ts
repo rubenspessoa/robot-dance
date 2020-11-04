@@ -1,6 +1,19 @@
 import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 
-@Entity()
+export enum PowerMove {
+    infameMoonwalk = "infameMoonwalk",
+    rebolation = "rebolation",
+    theGangnamStyle = "theGangnamStyle",
+    theWoah = "theWoah",
+    bodyRolls = "bodyRolls",
+    twoSteps = "twoSteps",
+    dougieDougie = "dougieDougie",
+    electricSide = "electricSide",
+    theBizMarkie = "theBizMarkie",
+    theBustDown = "theBustDown"
+}
+
+@Entity('Robot')
 export class Robot {
     @PrimaryGeneratedColumn()
     id: number
@@ -9,12 +22,12 @@ export class Robot {
     name: string
 
     @Column()
-    powerMove: string
+    powerMove: PowerMove
 
     @Column()
     experience: number
 
-    @Column({ default: false})
+    @Column({default: false})
     outOfOrder: boolean
 
     @Column()

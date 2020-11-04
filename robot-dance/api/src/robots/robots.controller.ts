@@ -1,12 +1,13 @@
 import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {RobotsService} from "./robots.service";
 import {Robot} from "./robot.entity";
-import {DeleteResult, InsertResult, UpdateResult} from "typeorm";
+import {DeleteResult} from "typeorm";
 import {CreateRobotDto} from "./createRobot.dto";
 
 @Controller('robots')
 export class RobotsController {
-    constructor(private readonly robotsService: RobotsService) {}
+    constructor(private readonly robotsService: RobotsService) {
+    }
 
     @Get('all')
     getAllRobots(): Promise<Robot[]> {
