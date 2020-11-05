@@ -2,7 +2,7 @@ import {Body, Controller, Delete, Get, Param, Post, Put} from '@nestjs/common';
 import {RobotsService} from "./robots.service";
 import {Robot} from "./robot.entity";
 import {DeleteResult} from "typeorm";
-import {CreateRobotDto} from "./createRobot.dto";
+import {CreateRobotDto} from "./create-robot.dto";
 
 @Controller('robots')
 export class RobotsController {

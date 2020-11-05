@@ -5,6 +5,7 @@ import {Connection} from "typeorm";
 import {DanceBattlesModule} from './dance-battles/dance-battles.module';
 import {DanceOffsModule} from './dance-offs/dance-offs.module';
 import {Robot} from "./robots/robot.entity";
+import {DanceBattle} from "./dance-battles/dance-battle.entity";
 
 @Module({
     imports: [
@@ -13,7 +14,7 @@ import {Robot} from "./robots/robot.entity";
             "database": "database.db",
             "logging": false,
             "synchronize": true,
-            "entities": [Robot]
+            "entities": [Robot, DanceBattle]
         }),
         RobotsModule,
         DanceBattlesModule,

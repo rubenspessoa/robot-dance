@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinTable, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {DanceBattle} from "../dance-battles/dance-battle.entity";
 
 export enum PowerMove {
     infameMoonwalk = "infameMoonwalk",
@@ -32,4 +33,22 @@ export class Robot {
 
     @Column()
     avatar: string
+
+    @OneToMany(
+        type => DanceBattle,
+        danceBattle => danceBattle.blueRobot,
+        {cascade: true})
+    danceBattlesAsBlueRobot: DanceBattle[]
+
+    @OneToMany(
+        type => DanceBattle,
+        danceBattle => danceBattle.redRobot,
+        {cascade: true})
+    danceBattlesAsRedRobot: DanceBattle[]
+
+    @OneToMany(
+        type => DanceBattle,
+        danceBattle => danceBattle.winner,
+        {cascade: true})
+    danceBattlesWon: DanceBattle[]
 }

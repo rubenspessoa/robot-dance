@@ -2,7 +2,7 @@ import {Injectable} from '@nestjs/common';
 import {DeleteResult, Repository} from "typeorm";
 import {InjectRepository} from "@nestjs/typeorm";
 import {Robot} from "./robot.entity";
-import {CreateRobotDto} from "./createRobot.dto";
+import {CreateRobotDto} from "./create-robot.dto";
 
 @Injectable()
 export class RobotsService {
