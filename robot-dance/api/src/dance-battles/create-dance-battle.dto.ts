@@ -11,9 +11,4 @@ export class CreateDanceBattleDto {
     @IsNotEmpty()
     @ValidateNested()
     redRobot: Robot
-
-    @IsObject()
-    @IsNotEmpty()
-    @ValidateNested()
-    winner: Robot
 }

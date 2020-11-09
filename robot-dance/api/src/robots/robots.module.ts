@@ -12,7 +12,7 @@ import {RobotSeed} from "./robot.seed";
         CommandModule],
     controllers: [RobotsController],
     providers: [RobotsService, RobotSeed],
-    exports: [RobotSeed]
+    exports: [RobotSeed, RobotsService]
 })
 export class RobotsModule {
 }

@@ -7,6 +7,7 @@ import {DanceBattle} from "./dance-battle.entity";
 @Module({
     imports: [TypeOrmModule.forFeature([DanceBattle])],
     controllers: [DanceBattlesController],
-    providers: [DanceBattlesService]
+    providers: [DanceBattlesService],
+    exports: [DanceBattlesService]
 })
 export class DanceBattlesModule {}

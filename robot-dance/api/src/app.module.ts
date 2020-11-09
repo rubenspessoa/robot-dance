@@ -6,6 +6,7 @@ import {DanceBattlesModule} from './dance-battles/dance-battles.module';
 import {DanceOffsModule} from './dance-offs/dance-offs.module';
 import {Robot} from "./robots/robot.entity";
 import {DanceBattle} from "./dance-battles/dance-battle.entity";
+import {DanceOff} from "./dance-offs/dance-off.entity";
 
 @Module({
     imports: [
@@ -14,7 +15,7 @@ import {DanceBattle} from "./dance-battles/dance-battle.entity";
             "database": "database.db",
             "logging": false,
             "synchronize": true,
-            "entities": [Robot, DanceBattle]
+            "entities": [Robot, DanceBattle, DanceOff]
         }),
         RobotsModule,
         DanceBattlesModule,

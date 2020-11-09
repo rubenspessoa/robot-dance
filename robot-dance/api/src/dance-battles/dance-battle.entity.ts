@@ -1,5 +1,6 @@
-import {Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Robot} from "../robots/robot.entity";
+import {DanceOff, Team} from "../dance-offs/dance-off.entity";
 
 @Entity()
 export class DanceBattle {
@@ -13,5 +14,11 @@ export class DanceBattle {
     redRobot: Robot
 
     @ManyToOne(type => Robot, robot => robot.danceBattlesWon, {eager: true})
-    winner: Robot
+    winningRobot: Robot
+
+    @Column()
+    winningTeam: Team
+
+    @ManyToOne(type => DanceOff, danceOff => danceOff.danceBattles)
+    partOfDanceOff: DanceOff
 }

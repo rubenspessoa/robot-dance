@@ -11,11 +11,11 @@ export class RobotsService {
         private readonly usersRepository: Repository<Robot>) {
     }
 
-    findAll(): Promise<Robot[]> {
+    async findAll(): Promise<Robot[]> {
         return this.usersRepository.find();
     }
 
-    findOneById(id: string): Promise<Robot> {
+    async findOneById(id: string): Promise<Robot> {
         return this.usersRepository.findOne(id);
     }
 
