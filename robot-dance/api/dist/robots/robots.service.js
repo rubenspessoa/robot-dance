@@ -18,24 +18,25 @@ const typeorm_1 = require("typeorm");
 const typeorm_2 = require("@nestjs/typeorm");
 const robot_entity_1 = require("./robot.entity");
 let RobotsService = class RobotsService {
-    constructor(usersRepository) {
-        this.usersRepository = usersRepository;
+    constructor(robotsRepository) {
+        this.robotsRepository = robotsRepository;
     }
     async findAll() {
-        return this.usersRepository.find();
+        return this.robotsRepository.find({ relations: ["danceBattlesAsBlueRobot", "danceBattlesAsRedRobot", "danceBattlesWon", "danceOffsAsRedTeam", "danceOffsAsBlueTeam"] });
     }
     async findOneById(id) {
-        return this.usersRepository.findOne(id);
+        return this.robotsRepository.findOne(id, { relations: ["danceBattlesAsBlueRobot", "danceBattlesAsRedRobot", "danceBattlesWon", "danceOffsAsRedTeam", "danceOffsAsBlueTeam"] });
     }
     async create(createRobotDTO) {
-        return this.usersRepository.save(createRobotDTO);
+        return this.robotsRepository.save(createRobotDTO);
     }
     async update(id, updateRobotDTO) {
-        await this.usersRepository.update({ id: +id }, updateRobotDTO);
+        await this.robotsRepository.update({ id: +id }, updateRobotDTO);
         return this.findOneById(id);
     }
     async delete(id) {
-        return this.usersRepository.delete({ id: +id });
+        const robot = await this.robotsRepository.findOne(id, { relations: ["danceBattlesAsBlueRobot", "danceBattlesAsRedRobot", "danceBattlesWon", "danceOffsAsRedTeam", "danceOffsAsBlueTeam"] });
+        await this.robotsRepository.remove(robot, {});
     }
 };
 RobotsService = __decorate([

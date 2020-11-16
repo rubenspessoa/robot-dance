@@ -17,7 +17,7 @@ const configService = new ConfigService();
         TypeOrmModule.forRoot({
             "type": "sqlite",
             "database": "database.db",
-            "logging": false,
+            "logging": true,
             "synchronize": configService.get<boolean>('SHOULD_SYNCHRONISE'),
             "entities": [Robot, DanceBattle, DanceOff]
         }),

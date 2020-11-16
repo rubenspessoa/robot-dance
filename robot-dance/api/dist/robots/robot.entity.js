@@ -29,7 +29,7 @@ var PowerMove;
 let Robot = class Robot {
 };
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn(),
+    typeorm_1.PrimaryGeneratedColumn('uuid'),
     __metadata("design:type", Number)
 ], Robot.prototype, "id", void 0);
 __decorate([
@@ -65,11 +65,11 @@ __decorate([
     __metadata("design:type", Array)
 ], Robot.prototype, "danceBattlesWon", void 0);
 __decorate([
-    typeorm_1.ManyToMany(type => dance_off_entity_1.DanceOff, danceOff => danceOff.redTeam),
+    typeorm_1.ManyToMany(type => dance_off_entity_1.DanceOff, danceOff => danceOff.redTeam, { cascade: true }),
     __metadata("design:type", Array)
 ], Robot.prototype, "danceOffsAsRedTeam", void 0);
 __decorate([
-    typeorm_1.ManyToMany(type => dance_off_entity_1.DanceOff, danceOff => danceOff.blueTeam),
+    typeorm_1.ManyToMany(type => dance_off_entity_1.DanceOff, danceOff => danceOff.blueTeam, { cascade: true }),
     __metadata("design:type", Array)
 ], Robot.prototype, "danceOffsAsBlueTeam", void 0);
 Robot = __decorate([

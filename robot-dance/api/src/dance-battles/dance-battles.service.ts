@@ -15,11 +15,11 @@ export class DanceBattlesService {
     }
 
     async findAll(): Promise<DanceBattle[]> {
-        return this.danceBattlesRepository.find();
+        return this.danceBattlesRepository.find({ relations: ["redRobot", "blueRobot", "partOfDanceOff"]});
     }
 
     async findById(id: string): Promise<DanceBattle> {
-        return this.danceBattlesRepository.findOne(id);
+        return this.danceBattlesRepository.findOne(id, { relations: ["redRobot", "blueRobot", "partOfDanceOff"]});
     }
 
     async create(createDanceBattleDTO: CreateDanceBattleDto): Promise<DanceBattle> {

@@ -31,7 +31,7 @@ export class RobotsController {
     }
 
     @Delete(':id')
-    deleteRobot(@Param('id') id: string): Promise<DeleteResult> {
+    deleteRobot(@Param('id') id: string): Promise<void> {
         return this.robotsService.delete(id);
     }
 }

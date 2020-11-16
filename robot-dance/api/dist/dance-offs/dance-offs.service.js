@@ -26,6 +26,12 @@ let DanceOffsService = class DanceOffsService {
         this.robotsService = robotsService;
         this.danceBattleService = danceBattleService;
     }
+    async findAll() {
+        return this.danceOffRepository.find({ relations: ["redTeam", "blueTeam", "danceBattles"] });
+    }
+    async findOneById(id) {
+        return this.danceOffRepository.findOne(id, { relations: ["redTeam", "blueTeam", "danceBattles"] });
+    }
     async createDanceOffWithoutTeams() {
         const allRobots = await this.robotsService.findAll();
         const createDanceOffDto = await this.createRandomDanceOffDTO(allRobots);

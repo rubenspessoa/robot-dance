@@ -9,7 +9,7 @@ export enum Team {
 
 @Entity()
 export class DanceOff {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     id: number
 
     @ManyToMany(type => Robot, robot => robot.danceOffsAsRedTeam)

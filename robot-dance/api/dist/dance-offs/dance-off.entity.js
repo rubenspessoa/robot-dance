@@ -21,7 +21,7 @@ var Team;
 let DanceOff = class DanceOff {
 };
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn(),
+    typeorm_1.PrimaryGeneratedColumn('uuid'),
     __metadata("design:type", Number)
 ], DanceOff.prototype, "id", void 0);
 __decorate([

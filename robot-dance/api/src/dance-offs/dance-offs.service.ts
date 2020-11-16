@@ -19,6 +19,14 @@ export class DanceOffsService {
     ) {
     }
 
+    async findAll(): Promise<DanceOff[]> {
+        return this.danceOffRepository.find({ relations: ["redTeam", "blueTeam", "danceBattles"]});
+    }
+
+    async findOneById(id: number): Promise<DanceOff> {
+        return this.danceOffRepository.findOne(id, { relations: ["redTeam", "blueTeam", "danceBattles"]})
+    }
+
     async createDanceOffWithoutTeams(): Promise<DanceOff> {
         const allRobots = await this.robotsService.findAll();
         const createDanceOffDto = await this.createRandomDanceOffDTO(allRobots);

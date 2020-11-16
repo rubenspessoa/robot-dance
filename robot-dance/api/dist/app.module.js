@@ -19,6 +19,8 @@ const dance_offs_module_1 = require("./dance-offs/dance-offs.module");
 const robot_entity_1 = require("./robots/robot.entity");
 const dance_battle_entity_1 = require("./dance-battles/dance-battle.entity");
 const dance_off_entity_1 = require("./dance-offs/dance-off.entity");
+const config_1 = require("@nestjs/config");
+const configService = new config_1.ConfigService();
 let AppModule = class AppModule {
     constructor(connection) {
         this.connection = connection;
@@ -27,11 +29,12 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     common_1.Module({
         imports: [
+            config_1.ConfigModule.forRoot({ isGlobal: true }),
             typeorm_1.TypeOrmModule.forRoot({
                 "type": "sqlite",
                 "database": "database.db",
-                "logging": false,
-                "synchronize": true,
+                "logging": true,
+                "synchronize": configService.get('SHOULD_SYNCHRONISE'),
                 "entities": [robot_entity_1.Robot, dance_battle_entity_1.DanceBattle, dance_off_entity_1.DanceOff]
             }),
             robots_module_1.RobotsModule,

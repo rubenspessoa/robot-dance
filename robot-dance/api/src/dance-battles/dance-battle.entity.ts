@@ -4,16 +4,16 @@ import {DanceOff, Team} from "../dance-offs/dance-off.entity";
 
 @Entity()
 export class DanceBattle {
-    @PrimaryGeneratedColumn()
+    @PrimaryGeneratedColumn('uuid')
     id: number
 
-    @ManyToOne(type => Robot, robot => robot.danceBattlesAsBlueRobot, {eager: true})
+    @ManyToOne(type => Robot, robot => robot.danceBattlesAsBlueRobot)
     blueRobot: Robot
 
-    @ManyToOne(type => Robot, robot => robot.danceBattlesAsRedRobot, {eager: true})
+    @ManyToOne(type => Robot, robot => robot.danceBattlesAsRedRobot)
     redRobot: Robot
 
-    @ManyToOne(type => Robot, robot => robot.danceBattlesWon, {eager: true})
+    @ManyToOne(type => Robot, robot => robot.danceBattlesWon)
     winningRobot: Robot
 
     @Column()

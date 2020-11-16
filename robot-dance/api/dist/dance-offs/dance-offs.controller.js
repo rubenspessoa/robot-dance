@@ -20,6 +20,12 @@ let DanceOffsController = class DanceOffsController {
     constructor(danceOffsService) {
         this.danceOffsService = danceOffsService;
     }
+    findAll() {
+        return this.danceOffsService.findAll();
+    }
+    findById(id) {
+        return this.danceOffsService.findOneById(id);
+    }
     createDanceOffWithoutTeams() {
         return this.danceOffsService.createDanceOffWithoutTeams();
     }
@@ -27,6 +33,19 @@ let DanceOffsController = class DanceOffsController {
         return this.danceOffsService.createDanceOffWithTeams(createDanceOffDTO);
     }
 };
+__decorate([
+    common_1.Get('all'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], DanceOffsController.prototype, "findAll", null);
+__decorate([
+    common_1.Get(':id'),
+    __param(0, common_1.Param('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number]),
+    __metadata("design:returntype", Promise)
+], DanceOffsController.prototype, "findById", null);
 __decorate([
     common_1.Post(),
     __metadata("design:type", Function),

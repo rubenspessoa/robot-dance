@@ -24,10 +24,10 @@ let DanceBattlesService = class DanceBattlesService {
         this.danceBattlesRepository = danceBattlesRepository;
     }
     async findAll() {
-        return this.danceBattlesRepository.find();
+        return this.danceBattlesRepository.find({ relations: ["redRobot", "blueRobot", "partOfDanceOff"] });
     }
     async findById(id) {
-        return this.danceBattlesRepository.findOne(id);
+        return this.danceBattlesRepository.findOne(id, { relations: ["redRobot", "blueRobot", "partOfDanceOff"] });
     }
     async create(createDanceBattleDTO) {
         const { winningTeam, winningRobot } = this.getWinner(createDanceBattleDTO.blueRobot, createDanceBattleDTO.redRobot);

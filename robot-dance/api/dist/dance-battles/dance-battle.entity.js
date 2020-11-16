@@ -16,19 +16,19 @@ const dance_off_entity_1 = require("../dance-offs/dance-off.entity");
 let DanceBattle = class DanceBattle {
 };
 __decorate([
-    typeorm_1.PrimaryGeneratedColumn(),
+    typeorm_1.PrimaryGeneratedColumn('uuid'),
     __metadata("design:type", Number)
 ], DanceBattle.prototype, "id", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesAsBlueRobot, { eager: true }),
+    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesAsBlueRobot),
     __metadata("design:type", robot_entity_1.Robot)
 ], DanceBattle.prototype, "blueRobot", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesAsRedRobot, { eager: true }),
+    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesAsRedRobot),
     __metadata("design:type", robot_entity_1.Robot)
 ], DanceBattle.prototype, "redRobot", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesWon, { eager: true }),
+    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesWon),
     __metadata("design:type", robot_entity_1.Robot)
 ], DanceBattle.prototype, "winningRobot", void 0);
 __decorate([
