@@ -7,14 +7,18 @@ import {DanceOffsModule} from './dance-offs/dance-offs.module';
 import {Robot} from "./robots/robot.entity";
 import {DanceBattle} from "./dance-battles/dance-battle.entity";
 import {DanceOff} from "./dance-offs/dance-off.entity";
+import {ConfigModule, ConfigService} from "@nestjs/config";
+
+const configService = new ConfigService();
 
 @Module({
     imports: [
+        ConfigModule.forRoot({isGlobal: true}),
         TypeOrmModule.forRoot({
             "type": "sqlite",
             "database": "database.db",
             "logging": false,
-            "synchronize": true,
+            "synchronize": configService.get<boolean>('SHOULD_SYNCHRONISE'),
             "entities": [Robot, DanceBattle, DanceOff]
         }),
         RobotsModule,
