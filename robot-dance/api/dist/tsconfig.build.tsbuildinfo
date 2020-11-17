@@ -3147,7 +3147,7 @@
         "affectsGlobalScope": false
       },
       "../src/dance-battles/dance-battles.service.ts": {
-        "version": "675da05adfc4127e3a6195c953d3862bfcaf0bd5731a36d8568209fbfc212e31",
+        "version": "1f08101e231b641ad4aff36391159781e0f04f78a12b93d3de1d717fda2bc68f",
         "signature": "c0a12e9ae36413d54acfd872db76024aebf37c20a8099df905c36fe532d10505",
         "affectsGlobalScope": false
       },

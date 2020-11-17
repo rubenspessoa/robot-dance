@@ -53,20 +53,16 @@ let DanceBattlesService = class DanceBattlesService {
         if (blueDamage > redDamage) {
             return blueTeamWon;
         }
-        else if (blueDamage < redDamage) {
+        if (blueDamage < redDamage) {
             return redTeamWon;
         }
-        else {
-            if (blueRobot.experience > redRobot.experience) {
-                return blueTeamWon;
-            }
-            else if (blueRobot.experience < redRobot.experience) {
-                return redTeamWon;
-            }
-            else {
-                return Math.floor(Math.random() * 2) === 0 ? blueTeamWon : redTeamWon;
-            }
+        if (blueRobot.experience > redRobot.experience) {
+            return blueTeamWon;
         }
+        if (blueRobot.experience < redRobot.experience) {
+            return redTeamWon;
+        }
+        return Math.floor(Math.random() * 2) === 0 ? blueTeamWon : redTeamWon;
     }
 };
 DanceBattlesService = __decorate([
