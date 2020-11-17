@@ -37,26 +37,23 @@ export class Robot {
 
     @OneToMany(
         type => DanceBattle,
-        danceBattle => danceBattle.blueRobot,
-        {cascade: true})
+        danceBattle => danceBattle.blueRobot)
     danceBattlesAsBlueRobot: DanceBattle[]
 
     @OneToMany(
         type => DanceBattle,
-        danceBattle => danceBattle.redRobot,
-        {cascade: true})
+        danceBattle => danceBattle.redRobot)
     danceBattlesAsRedRobot: DanceBattle[]
 
     @OneToMany(
         type => DanceBattle,
-        danceBattle => danceBattle.winningRobot,
-        {cascade: true})
+        danceBattle => danceBattle.winningRobot)
     danceBattlesWon: DanceBattle[]
 
-    @ManyToMany(type => DanceOff, danceOff => danceOff.redTeam, {cascade: true})
+    @ManyToMany(type => DanceOff, danceOff => danceOff.redTeam)
     danceOffsAsRedTeam: DanceOff[]
 
-    @ManyToMany(type => DanceOff, danceOff => danceOff.blueTeam, {cascade: true})
+    @ManyToMany(type => DanceOff, danceOff => danceOff.blueTeam)
     danceOffsAsBlueTeam: DanceOff[]
 
 }

@@ -3,7 +3,6 @@ import {Repository} from "typeorm";
 import {InjectRepository} from "@nestjs/typeorm";
 import {Robot} from "./robot.entity";
 import {CreateRobotDto} from "./create-robot.dto";
-import {ConfigService} from "@nestjs/config";
 
 @Injectable()
 export class RobotsService {
@@ -25,7 +24,7 @@ export class RobotsService {
     }
 
     async update(id: string, updateRobotDTO: CreateRobotDto): Promise<Robot> {
-        await this.robotsRepository.update({id: +id}, updateRobotDTO);
+        await this.robotsRepository.update(id, updateRobotDTO);
         return this.findOneById(id);
     }
 
