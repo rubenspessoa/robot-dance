@@ -53,23 +53,23 @@ __decorate([
     __metadata("design:type", String)
 ], Robot.prototype, "avatar", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => dance_battle_entity_1.DanceBattle, danceBattle => danceBattle.blueRobot, { cascade: true }),
+    typeorm_1.OneToMany(type => dance_battle_entity_1.DanceBattle, danceBattle => danceBattle.blueRobot),
     __metadata("design:type", Array)
 ], Robot.prototype, "danceBattlesAsBlueRobot", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => dance_battle_entity_1.DanceBattle, danceBattle => danceBattle.redRobot, { cascade: true }),
+    typeorm_1.OneToMany(type => dance_battle_entity_1.DanceBattle, danceBattle => danceBattle.redRobot),
     __metadata("design:type", Array)
 ], Robot.prototype, "danceBattlesAsRedRobot", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => dance_battle_entity_1.DanceBattle, danceBattle => danceBattle.winningRobot, { cascade: true }),
+    typeorm_1.OneToMany(type => dance_battle_entity_1.DanceBattle, danceBattle => danceBattle.winningRobot),
     __metadata("design:type", Array)
 ], Robot.prototype, "danceBattlesWon", void 0);
 __decorate([
-    typeorm_1.ManyToMany(type => dance_off_entity_1.DanceOff, danceOff => danceOff.redTeam, { cascade: true }),
+    typeorm_1.ManyToMany(type => dance_off_entity_1.DanceOff, danceOff => danceOff.redTeam),
     __metadata("design:type", Array)
 ], Robot.prototype, "danceOffsAsRedTeam", void 0);
 __decorate([
-    typeorm_1.ManyToMany(type => dance_off_entity_1.DanceOff, danceOff => danceOff.blueTeam, { cascade: true }),
+    typeorm_1.ManyToMany(type => dance_off_entity_1.DanceOff, danceOff => danceOff.blueTeam),
     __metadata("design:type", Array)
 ], Robot.prototype, "danceOffsAsBlueTeam", void 0);
 Robot = __decorate([

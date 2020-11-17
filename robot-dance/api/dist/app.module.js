@@ -10,16 +10,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
-const common_1 = require("@nestjs/common");
-const robots_module_1 = require("./robots/robots.module");
-const typeorm_1 = require("@nestjs/typeorm");
-const typeorm_2 = require("typeorm");
+const dance_battle_entity_1 = require("./dance-battles/dance-battle.entity");
 const dance_battles_module_1 = require("./dance-battles/dance-battles.module");
+const dance_off_entity_1 = require("./dance-offs/dance-off.entity");
 const dance_offs_module_1 = require("./dance-offs/dance-offs.module");
 const robot_entity_1 = require("./robots/robot.entity");
-const dance_battle_entity_1 = require("./dance-battles/dance-battle.entity");
-const dance_off_entity_1 = require("./dance-offs/dance-off.entity");
+const robots_module_1 = require("./robots/robots.module");
+const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
+const typeorm_1 = require("@nestjs/typeorm");
+const typeorm_2 = require("typeorm");
 const configService = new config_1.ConfigService();
 let AppModule = class AppModule {
     constructor(connection) {
@@ -31,15 +31,19 @@ AppModule = __decorate([
         imports: [
             config_1.ConfigModule.forRoot({ isGlobal: true }),
             typeorm_1.TypeOrmModule.forRoot({
-                "type": "sqlite",
-                "database": "database.db",
-                "logging": true,
-                "synchronize": configService.get('SHOULD_SYNCHRONISE'),
-                "entities": [robot_entity_1.Robot, dance_battle_entity_1.DanceBattle, dance_off_entity_1.DanceOff]
+                type: 'mysql',
+                host: 'localhost',
+                port: 3306,
+                username: 'root',
+                password: 'robotdance',
+                database: 'robot_dance',
+                logging: configService.get('LOGGING'),
+                synchronize: configService.get('SYNCHRONIZE'),
+                entities: [robot_entity_1.Robot, dance_battle_entity_1.DanceBattle, dance_off_entity_1.DanceOff],
             }),
             robots_module_1.RobotsModule,
             dance_battles_module_1.DanceBattlesModule,
-            dance_offs_module_1.DanceOffsModule
+            dance_offs_module_1.DanceOffsModule,
         ],
         controllers: [],
         providers: [],

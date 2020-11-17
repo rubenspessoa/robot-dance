@@ -31,7 +31,7 @@ let RobotsService = class RobotsService {
         return this.robotsRepository.save(createRobotDTO);
     }
     async update(id, updateRobotDTO) {
-        await this.robotsRepository.update({ id: +id }, updateRobotDTO);
+        await this.robotsRepository.update(id, updateRobotDTO);
         return this.findOneById(id);
     }
     async delete(id) {

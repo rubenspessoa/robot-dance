@@ -20,15 +20,15 @@ __decorate([
     __metadata("design:type", Number)
 ], DanceBattle.prototype, "id", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesAsBlueRobot),
+    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesAsBlueRobot, { onDelete: "CASCADE" }),
     __metadata("design:type", robot_entity_1.Robot)
 ], DanceBattle.prototype, "blueRobot", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesAsRedRobot),
+    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesAsRedRobot, { onDelete: "CASCADE" }),
     __metadata("design:type", robot_entity_1.Robot)
 ], DanceBattle.prototype, "redRobot", void 0);
 __decorate([
-    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesWon),
+    typeorm_1.ManyToOne(type => robot_entity_1.Robot, robot => robot.danceBattlesWon, { onDelete: "CASCADE" }),
     __metadata("design:type", robot_entity_1.Robot)
 ], DanceBattle.prototype, "winningRobot", void 0);
 __decorate([
